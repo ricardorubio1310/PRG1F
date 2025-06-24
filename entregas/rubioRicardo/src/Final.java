@@ -25,6 +25,8 @@ public class Final {
         problema2 = (sumaPosicionParCarnet / 6) + 1;
         problema3 = (sumaTotalCarnet / 6) + 1;
 
+       ajustarProblemas(problema1, problema2, problema3);
+
         do {
             if (problema1 == problema2) {
                 problema1 = problema1 + 1;
@@ -62,5 +64,28 @@ public class Final {
     private static int calcularPar(int[] carnet) {
         int suma = carnet[0] + carnet[2] + carnet[4] + carnet[6] + carnet[8];
         return suma;
+    }
+    private static void ajustarProblemas( int problema1,  int problema2,  int problema3) {
+        do {
+            if (problema1 == problema2) {
+                problema1 = problema1 + 1;
+            }
+            if (problema1 == problema3) {
+                problema1 = problema1 + 1;
+            }
+            if (problema2 == problema3) {
+                problema3 = problema3 + 1;
+            }
+            if (problema1 == 7) {
+                problema1 = 1;
+            }
+            if (problema2 == 7) {
+                problema2 = 1;
+            }
+            if (problema3 == 7) {
+                problema3 = 1;
+            }
+        } while (problema1 == problema2 || problema1 == problema3 || problema2 == problema3 || problema1 > 6
+                || problema2 > 6 || problema3 > 6);
     }
 }
